@@ -9,3 +9,5 @@ export type NavBarProps = {
 };
 
 export type HoverPosition = (sectionHover: number) => number;
+
+export type HandleScroll = (element: HTMLDivElement | null) => void;

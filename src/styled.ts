@@ -4,6 +4,8 @@ export const Container = styled.div`
   scroll-snap-type: y mandatory;
   width: 100vw;
   height: 100vh;
+  overflow: scroll;
+  scroll-behavior: smooth;
 `;
 
 export const IntroductionStyled = styled.section`
@@ -165,4 +167,10 @@ export const ArrowDown = styled.div`
       stroke: #000;
     }
   }
+`;
+
+export const SkillsStyle = styled.section`
+  scroll-snap-align: center;
+  width: 100vw;
+  height: 100vh;
 `;

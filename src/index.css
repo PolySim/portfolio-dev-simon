@@ -7,7 +7,7 @@
 }
 
 body{
-  /* background-color: #242424; */
   background-color: #0d090a;
   font-family: 'Rubik', sans-serif;
+  scroll-behavior: smooth;
 }

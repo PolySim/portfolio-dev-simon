@@ -171,6 +171,72 @@ export const ArrowDown = styled.div`
 
 export const SkillsStyle = styled.section`
   scroll-snap-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   width: 100vw;
   height: 100vh;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  h3 {
+    color: #fff;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+    letter-spacing: 3px;
+    margin-bottom: 48px;
+  }
+`;
+
+export const SkillStyle = styled.div<{ background: string }>`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 12px;
+  position: relative;
+  background: ${(props) => props.background};
+
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+
+  > div:nth-of-type(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: hsla(0, 0%, 6%, 0.4);
+    border-radius: 20px;
+    width: 60%;
+    height: 60%;
+
+    img {
+      width: 60%;
+      height: 60%;
+      object-fit: contain;
+    }
+  }
+
+  > div:nth-of-type(2) {
+    position: absolute;
+    filter: blur(40px);
+    background: ${(props) => props.background};
+    opacity: 0.25;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
 `;

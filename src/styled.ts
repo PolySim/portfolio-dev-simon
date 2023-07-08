@@ -97,3 +97,40 @@ export const Presentation = styled.div`
     padding: 12px 24px;
   }
 `;
+
+export const NavBarStyle = styled.header`
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 24px;
+  color: #f3eff5;
+  border-radius: 12px;
+`;
+
+export const BackgroundHover = styled.span<{ width: number; position: number }>`
+  position: absolute;
+  left: 0;
+  transform: ${(props) => `translateX(${props.position}px)`};
+  transition: all 0.3s ease-in;
+  height: 100%;
+  width: ${(props) => `${props.width}px`};
+  background-color: rgba(33, 33, 33, 0.7);
+  border-radius: 12px;
+`;
+
+export const SectionNavBar = styled.div<{
+  selected: boolean;
+  last: "true" | "false";
+}>`
+  color: ${(props) => (props.selected ? "#de3c4b" : "#fff")};
+  transition: color 0.15s ease-in;
+  cursor: pointer;
+  padding: 12px 12px;
+  margin-right: ${(props) => (props.last === "true" ? "0" : "12px")};
+  border-radius: 12px;
+  z-index: 10;
+`;

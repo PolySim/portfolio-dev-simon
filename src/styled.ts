@@ -134,3 +134,35 @@ export const SectionNavBar = styled.div<{
   border-radius: 12px;
   z-index: 10;
 `;
+
+export const ArrowDown = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50px);
+
+  width: 86px;
+  height: 86px;
+  color: #f3eff5;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #f3eff5;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in;
+
+  > svg {
+    stroke: #f3eff5;
+  }
+
+  &:hover {
+    background-color: #f3eff5;
+
+    > svg {
+      stroke: #000;
+    }
+  }
+`;

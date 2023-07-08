@@ -14,8 +14,8 @@ const sections: Sections = [
     width: 112.52,
   },
   {
-    name: "contact",
-    width: 107.19,
+    name: "Contact",
+    width: 109.95,
   },
 ];
 

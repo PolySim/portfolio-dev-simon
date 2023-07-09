@@ -1,3 +1,4 @@
+import { NavBarProps } from "./type";
 import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
@@ -199,8 +200,9 @@ export const SkillsStyle = styled.section`
   }
 `;
 
-export const SkillStyle = styled.div<{ background: string }>`
+export const SkillStyle = styled.div<{ background: string; name: string }>`
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -211,6 +213,38 @@ export const SkillStyle = styled.div<{ background: string }>`
   width: 120px;
   height: 120px;
   border-radius: 50%;
+
+  transition: all 0.2s ease-in;
+
+  &::after {
+    content: "${(props) => props.name}";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 75%);
+    opacity: 0;
+    transition: all 0.2s ease-in;
+
+    background-color: rgba(50, 50, 50, 0.4);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 15px;
+
+    width: max-content;
+    padding: 10px 25px;
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  &:hover {
+    transform: scale(90%);
+
+    &::after {
+      transform: translate(-50%, 50%);
+      opacity: 1;
+    }
+  }
 
   > div:nth-of-type(1) {
     display: flex;
@@ -230,8 +264,10 @@ export const SkillStyle = styled.div<{ background: string }>`
     }
   }
 
-  > div:nth-of-type(2) {
+  > a {
     position: absolute;
+    top: 0;
+    left: 0;
     filter: blur(40px);
     background: ${(props) => props.background};
     opacity: 0.25;

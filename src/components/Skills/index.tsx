@@ -8,11 +8,15 @@ export default function Skills(): JSX.Element {
         <h3>Frontend</h3>
         <div>
           {skills.frontend.map((skill) => (
-            <SkillStyle background={skill.background} key={skill.name}>
+            <SkillStyle
+              background={skill.background}
+              name={skill.name}
+              key={skill.name}
+            >
               <div>
                 <img src={skill.path} alt={skill.name} />
               </div>
-              <div />
+              <a href={skill.doc} target="_blank" />
             </SkillStyle>
           ))}
         </div>
@@ -21,11 +25,15 @@ export default function Skills(): JSX.Element {
         <h3>Backend and tools</h3>
         <div>
           {skills.backend.map((skill) => (
-            <SkillStyle background={skill.background} key={skill.name}>
+            <SkillStyle
+              background={skill.background}
+              name={skill.name}
+              key={skill.name}
+            >
               <div>
                 <img src={skill.path} alt={skill.name} />
               </div>
-              <div />
+              <a href={skill.doc} target="_blank" />
             </SkillStyle>
           ))}
         </div>

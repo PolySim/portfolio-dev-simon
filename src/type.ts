@@ -21,4 +21,5 @@ type Skill = {
   name: string;
   path: string;
   background: string;
+  doc: string;
 };

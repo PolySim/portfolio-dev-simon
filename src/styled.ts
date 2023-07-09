@@ -276,3 +276,79 @@ export const SkillStyle = styled.div<{ background: string; name: string }>`
     z-index: 10;
   }
 `;
+
+export const ProjectsStyle = styled.section`
+  scroll-snap-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 75%;
+    width: 400px;
+  }
+`;
+
+export const ProjectStyle = styled.div`
+  position: relative;
+  perspective: 2000px;
+  perspective-origin: top;
+
+  width: 100%;
+  height: 35%;
+
+  &:hover > div {
+    transform: rotateY(180deg);
+  }
+
+  /* Card */
+  > div {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    border-radius: 40px;
+    box-shadow: rgba(255, 255, 255, 0.12) 0px -12px 30px,
+      rgba(255, 255, 255, 0.12) 0px 4px 6px,
+      rgba(255, 255, 255, 0.17) 0px 12px 13px,
+      rgba(255, 255, 255, 0.09) 0px -3px 5px;
+
+    > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+
+      width: 100%;
+      height: 100%;
+      border-radius: 40px;
+
+      > img {
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        object-fit: cover;
+      }
+    }
+
+    /* Back */
+    > div:nth-of-type(2) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #912f56;
+      transform: rotateY(180deg);
+    }
+  }
+`;

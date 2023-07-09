@@ -23,3 +23,12 @@ type Skill = {
   background: string;
   doc: string;
 };
+
+export type Projects = ProjectProps[];
+
+export type ProjectProps = {
+  name: string;
+  demoPath: string;
+  sourceCodePath: string;
+  imgPath: string;
+};

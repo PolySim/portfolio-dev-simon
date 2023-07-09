@@ -1,4 +1,3 @@
-import { NavBarProps } from "./type";
 import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
@@ -23,12 +22,13 @@ export const IntroductionStyled = styled.section`
     width: 22rem;
     height: 30rem;
     border-radius: 200px 200px 0 0;
-    background: rgb(145, 47, 86);
     background: linear-gradient(
       180deg,
       rgba(145, 47, 86, 0.4220281862745098) 0%,
       rgba(54, 31, 39, 1) 100%
     );
+    box-shadow: rgba(145, 47, 86, 0.4220281862745098) 0px 50px 100px -20px,
+      rgba(54, 31, 39, 1) 0px 30px 60px -30px;
 
     img {
       width: 100%;

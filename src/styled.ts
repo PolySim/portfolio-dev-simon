@@ -4,6 +4,8 @@ export const Container = styled.div`
   scroll-snap-type: y mandatory;
   width: 100vw;
   height: 100vh;
+  overflow: scroll;
+  scroll-behavior: smooth;
 `;
 
 export const IntroductionStyled = styled.section`
@@ -20,12 +22,13 @@ export const IntroductionStyled = styled.section`
     width: 22rem;
     height: 30rem;
     border-radius: 200px 200px 0 0;
-    background: rgb(145, 47, 86);
     background: linear-gradient(
       180deg,
       rgba(145, 47, 86, 0.4220281862745098) 0%,
       rgba(54, 31, 39, 1) 100%
     );
+    box-shadow: rgba(145, 47, 86, 0.4220281862745098) 0px 50px 100px -20px,
+      rgba(54, 31, 39, 1) 0px 30px 60px -30px;
 
     img {
       width: 100%;
@@ -163,6 +166,220 @@ export const ArrowDown = styled.div`
 
     > svg {
       stroke: #000;
+    }
+  }
+`;
+
+export const SkillsStyle = styled.section`
+  scroll-snap-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  h3 {
+    color: #fff;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+    letter-spacing: 3px;
+    margin-bottom: 48px;
+  }
+`;
+
+export const SkillStyle = styled.div<{ background: string; name: string }>`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 12px;
+  position: relative;
+  background: ${(props) => props.background};
+
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+
+  transition: all 0.2s ease-in;
+
+  &::after {
+    content: "${(props) => props.name}";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 75%);
+    opacity: 0;
+    transition: all 0.2s ease-in;
+
+    background-color: rgba(50, 50, 50, 0.4);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 15px;
+
+    width: max-content;
+    padding: 10px 25px;
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  &:hover {
+    transform: scale(90%);
+
+    &::after {
+      transform: translate(-50%, 50%);
+      opacity: 1;
+    }
+  }
+
+  > div:nth-of-type(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: hsla(0, 0%, 6%, 0.4);
+    border-radius: 20px;
+    width: 60%;
+    height: 60%;
+
+    img {
+      width: 60%;
+      height: 60%;
+      object-fit: contain;
+    }
+  }
+
+  > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: blur(40px);
+    background: ${(props) => props.background};
+    opacity: 0.25;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+`;
+
+export const ProjectsStyle = styled.section`
+  scroll-snap-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 75%;
+    width: 400px;
+  }
+`;
+
+export const ProjectStyle = styled.div`
+  position: relative;
+  perspective: 2000px;
+  perspective-origin: top;
+
+  width: 100%;
+  height: 35%;
+
+  &:hover > div {
+    transform: rotateY(180deg);
+  }
+
+  /* Card */
+  > div {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    border-radius: 40px;
+    box-shadow: rgba(255, 255, 255, 0.12) 0px -12px 30px,
+      rgba(255, 255, 255, 0.12) 0px 4px 6px,
+      rgba(255, 255, 255, 0.17) 0px 12px 13px,
+      rgba(255, 255, 255, 0.09) 0px -3px 5px;
+
+    > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+
+      width: 100%;
+      height: 100%;
+      border-radius: 40px;
+
+      > img {
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        object-fit: cover;
+      }
+    }
+
+    /* Back */
+    > div:nth-of-type(2) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #912f56;
+      font-family: "Poppins", sans-serif;
+      transform: rotateY(180deg);
+
+      h5 {
+        color: #361f27;
+        font-size: 24px;
+      }
+
+      > div {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+
+        > a {
+          padding: 12px 24px;
+          border-radius: 15px;
+          border: 2px solid #361f27;
+          font-size: 16px;
+          text-decoration: none;
+        }
+
+        > a:nth-of-type(1) {
+          color: #361f27;
+        }
+
+        > a:nth-of-type(2) {
+          background-color: #361f27;
+          color: #912f56;
+          font-weight: 600;
+        }
+      }
     }
   }
 `;

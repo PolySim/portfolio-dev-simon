@@ -7,7 +7,7 @@ export default function Introduction(): JSX.Element {
         <img src="/me.png" alt="Simon Desdevises" />
       </div>
       <Presentation>
-        <p>Bienvenue, je suis</p>
+        <p>Welcome, I am</p>
         <p>SIMON</p>
         <div>Fullstack developpeur</div>
       </Presentation>

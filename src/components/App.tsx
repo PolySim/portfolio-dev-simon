@@ -7,6 +7,7 @@ import Skills from "./Skills";
 import { HandleScroll } from "@/type";
 import { useScrolling } from "react-use";
 import Projects from "./Projects";
+import Contact from "./Contact";
 
 export default function App(): JSX.Element {
   const [sectionViewing, setSectionViewing] = useState<number>(0);
@@ -40,6 +41,7 @@ export default function App(): JSX.Element {
         <Introduction />
         <Skills />
         <Projects />
+        <Contact />
       </Container>
 
       <ArrowNav setSectionViewing={setSectionViewing} />

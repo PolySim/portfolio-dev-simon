@@ -372,6 +372,7 @@ export const ProjectStyle = styled.div`
 
         > a:nth-of-type(1) {
           color: #361f27;
+          font-weight: 500;
         }
 
         > a:nth-of-type(2) {
@@ -382,4 +383,10 @@ export const ProjectStyle = styled.div`
       }
     }
   }
+`;
+
+export const ContactStyle = styled.div`
+  scroll-snap-align: center;
+  width: 100vw;
+  height: 100vh;
 `;

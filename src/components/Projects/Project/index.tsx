@@ -12,7 +12,17 @@ export default function Project({
         <div>
           <img src={project.imgPath} alt={project.name} />
         </div>
-        <div>{project.name}</div>
+        <div>
+          <h5>{project.name}</h5>
+          <div>
+            <a href={project.sourceCodePath} target="_blank">
+              Source code
+            </a>
+            <a href={project.demoPath} target="_blank">
+              Live Demo
+            </a>
+          </div>
+        </div>
       </div>
     </ProjectStyle>
   );

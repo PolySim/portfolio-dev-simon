@@ -345,10 +345,41 @@ export const ProjectStyle = styled.div`
     /* Back */
     > div:nth-of-type(2) {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-around;
       align-items: center;
       background-color: #912f56;
+      font-family: "Poppins", sans-serif;
       transform: rotateY(180deg);
+
+      h5 {
+        color: #361f27;
+        font-size: 24px;
+      }
+
+      > div {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+
+        > a {
+          padding: 12px 24px;
+          border-radius: 15px;
+          border: 2px solid #361f27;
+          font-size: 16px;
+          text-decoration: none;
+        }
+
+        > a:nth-of-type(1) {
+          color: #361f27;
+        }
+
+        > a:nth-of-type(2) {
+          background-color: #361f27;
+          color: #912f56;
+          font-weight: 600;
+        }
+      }
     }
   }
 `;

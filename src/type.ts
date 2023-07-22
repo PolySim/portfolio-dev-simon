@@ -1,3 +1,5 @@
+import React from "react";
+
 export type Sections = {
   name: string;
   width: number;
@@ -31,4 +33,12 @@ export type ProjectProps = {
   demoPath: string;
   sourceCodePath: string;
   imgPath: string;
+};
+
+export type IsFormValid = (data: FormValue) => boolean;
+
+export type FormValue = {
+  name: string;
+  email: string;
+  message: string;
 };

@@ -27,7 +27,8 @@ export const IntroductionStyled = styled.section`
       rgba(145, 47, 86, 0.4220281862745098) 0%,
       rgba(54, 31, 39, 1) 100%
     );
-    box-shadow: rgba(145, 47, 86, 0.4220281862745098) 0px 50px 100px -20px,
+    box-shadow:
+      rgba(145, 47, 86, 0.4220281862745098) 0 50px 100px -20px,
       rgba(54, 31, 39, 1) 0px 30px 60px -30px;
 
     img {
@@ -53,7 +54,7 @@ const presentationInfinite = keyframes`
 
 const nameGradient = keyframes`
 	0%{
-		background-position: 0%;
+		background-position: 0;
 	}
 	100%{
 		background-position: 400%;
@@ -66,7 +67,7 @@ export const Presentation = styled.div`
   justify-content: center;
   align-items: center;
   color: rgba(243, 239, 245, 0.4);
-  animation: ${presentationInfinite} 3s infinite;
+  animation: ${presentationInfinite} 3s infinite ease-in-out;
 
   > p:nth-of-type(1) {
     font-size: 40px;
@@ -317,7 +318,8 @@ export const ProjectStyle = styled.div`
     height: 100%;
     border-collapse: collapse;
     border-radius: 40px;
-    box-shadow: rgba(255, 255, 255, 0.12) 0px -12px 30px,
+    box-shadow:
+      rgba(255, 255, 255, 0.12) 0px -12px 30px,
       rgba(255, 255, 255, 0.12) 0px 4px 6px,
       rgba(255, 255, 255, 0.17) 0px 12px 13px,
       rgba(255, 255, 255, 0.09) 0px -3px 5px;
@@ -385,8 +387,172 @@ export const ProjectStyle = styled.div`
   }
 `;
 
-export const ContactStyle = styled.div`
+export const ContactStyle = styled.section`
   scroll-snap-align: center;
   width: 100vw;
   height: 100vh;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  color: #fff;
+
+  > div {
+    width: 500px;
+  }
+`;
+
+export const EmailStyle = styled.form`
+  width: 500px;
+  font-size: 14px;
+
+  /* Name & Email */
+  > div:nth-of-type(1) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      width: 48%;
+      opacity: 0.7;
+      transition: opacity 0.15s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      > label {
+        padding-left: 25px;
+        margin-bottom: 12px;
+      }
+
+      > input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 15px 25px;
+        border-radius: 15px;
+        background-color: #1e1e1e;
+        border: none;
+        caret-color: #fff;
+        color: #fff;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  /* Message */
+  > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    box-sizing: border-box;
+    transition: opacity 0.15s ease-in-out;
+    opacity: 0.7;
+    width: 100%;
+    height: 200px;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    > label {
+      padding-left: 25px;
+      margin-bottom: 12px;
+    }
+
+    > textarea {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 15px 25px;
+      border-radius: 15px;
+      background-color: #1e1e1e;
+      border: none;
+      caret-color: #fff;
+      color: #fff;
+      height: 100%;
+      text-align: start;
+      resize: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  /* Submit */
+  > div:nth-of-type(3) {
+    margin-top: 48px;
+    width: 100%;
+
+    > button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      width: 100%;
+      font-size: 34px;
+      padding: 12px 0;
+      background-color: #1e1e1e;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      z-index: 10;
+      overflow: hidden;
+
+      &:hover > div {
+        opacity: 1;
+      }
+
+      &:hover > p {
+        -webkit-text-fill-color: #0f0f0f;
+      }
+
+      > div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          hsla(329, 91%, 65%, 1) 0%,
+          hsla(350, 91%, 65%, 1) 100%
+        );
+        opacity: 0;
+        transition: 0.15s ease-in;
+      }
+
+      p {
+        background: linear-gradient(
+          90deg,
+          hsla(329, 91%, 65%, 1) 0%,
+          hsla(350, 91%, 65%, 1) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        z-index: 10;
+        transition: 0.15s ease-out;
+      }
+    }
+  }
+`;
+
+export const MessageValid = styled.span<{ $isValid?: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  opacity: 0.7;
+  width: 100%;
+  padding: 15px 25px;
+  border-radius: 15px;
+  background-color: ${(props) => (props.$isValid ? "#28a745" : "#dc3545")};
+  margin-bottom: 24px;
 `;

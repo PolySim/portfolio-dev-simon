@@ -450,52 +450,71 @@ export const ContactStyle = styled.section`
       width: 100%;
       height: 50px;
 
-      > a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        border-radius: 20px;
+      > div {
+        height: max-content;
         width: 60px;
-        height: 60px;
         margin-right: 48px;
-        transition: 0.3s ease-in;
+        opacity: 1;
 
         &:hover {
+          padding-bottom: 12px;
+        }
+
+        &:hover > a {
           transform: translateY(-12px);
 
           > svg > path {
             transition-delay: 0.1s;
             fill: #0f0f0f;
           }
+
+          > div {
+            opacity: 1;
+          }
         }
 
-        // Background
-        > div {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          opacity: 0;
-          transition: 0.3s ease-in;
-          background: linear-gradient(
-            90deg,
-            hsla(329, 91%, 65%, 1) 0%,
-            hsla(350, 91%, 65%, 1) 100%
-          );
+        > a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
           border-radius: 20px;
-          z-index: -1;
-        }
+          width: 60px;
+          height: 60px;
+          transition: 0.3s ease-in;
 
-        &:hover > div {
-          opacity: 1;
-        }
+          //&:hover {
+          //  transform: translateY(-12px);
+          //
+          //  > svg > path {
+          //    transition-delay: 0.1s;
+          //    fill: #0f0f0f;
+          //  }
+          //}
 
-        > svg {
-          height: 38px;
-          width: 38px;
+          // Background
+          > div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: 0.3s ease-in;
+            background: linear-gradient(
+              90deg,
+              hsla(329, 91%, 65%, 1) 0%,
+              hsla(350, 91%, 65%, 1) 100%
+            );
+            border-radius: 20px;
+            z-index: -1;
+          }
 
-          > path {
-            fill: #fff;
+          > svg {
+            height: 38px;
+            width: 38px;
+
+            > path {
+              fill: #fff;
+            }
           }
         }
       }
@@ -644,6 +663,7 @@ export const EmailStyle = styled.form`
       }
 
       p {
+        height: 38px;
         font-family: "Bebas Neue", sans-serif;
         letter-spacing: 6px;
         background: linear-gradient(

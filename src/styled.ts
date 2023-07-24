@@ -139,7 +139,7 @@ export const SectionNavBar = styled.div<{
   z-index: 10;
 `;
 
-export const ArrowDown = styled.div`
+export const ArrowDown = styled.div<{ $last: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,9 +155,12 @@ export const ArrowDown = styled.div`
   background-color: transparent;
   border-radius: 50%;
   border: 1px solid #f3eff5;
-  cursor: pointer;
+  cursor: ${(props) => (props.$last ? "auto" : "pointer")};
+  opacity: ${(props) => (props.$last ? "0" : "1")};
 
-  transition: all 0.3s ease-in;
+  transition:
+    all 0.3s ease-in,
+    opacity 0.1s ease-in;
 
   > svg {
     stroke: #f3eff5;

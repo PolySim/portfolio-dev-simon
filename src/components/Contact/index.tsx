@@ -11,13 +11,16 @@ export default function Contact(): JSX.Element {
           Contact me !<span />
         </p>
         <div>
-          <a>
+          <a href="https://github.com/PolySim" target="_blank">
             <svg name="github" viewBox="0 0 24 24">
               <path d="m12 1a10.89 10.89 0 0 0 -11 10.77 10.79 10.79 0 0 0 7.52 10.23c.55.1.75-.23.75-.52s0-.93 0-1.83c-3.06.65-3.71-1.44-3.71-1.44a2.86 2.86 0 0 0 -1.22-1.58c-1-.66.08-.65.08-.65a2.31 2.31 0 0 1 1.68 1.11 2.37 2.37 0 0 0 3.2.89 2.33 2.33 0 0 1 .7-1.44c-2.44-.27-5-1.19-5-5.32a4.15 4.15 0 0 1 1.11-2.91 3.78 3.78 0 0 1 .11-2.84s.93-.29 3 1.1a10.68 10.68 0 0 1 5.5 0c2.1-1.39 3-1.1 3-1.1a3.78 3.78 0 0 1 .11 2.84 4.15 4.15 0 0 1 1.17 2.89c0 4.14-2.58 5.05-5 5.32a2.5 2.5 0 0 1 .75 2v2.95s.2.63.75.52a10.8 10.8 0 0 0 7.5-10.22 10.89 10.89 0 0 0 -11-10.77" />
             </svg>
             <div />
           </a>
-          <a>
+          <a
+            href="https://www.instagram.com/simondesdevises/?hl=fr"
+            target="_blank"
+          >
             <div />
             <svg name="Instagramm" viewBox="0 0 24 24">
               <path
@@ -28,7 +31,7 @@ export default function Contact(): JSX.Element {
               />
             </svg>
           </a>
-          <a>
+          <a href="https://twitter.com/jsuiSim" target="_blank">
             <div />
             <svg name="twitter" viewBox="0 0 24 24">
               <path d="m0 0h24v24h-24" fill="#fff" opacity="0" />
@@ -38,7 +41,10 @@ export default function Contact(): JSX.Element {
               />
             </svg>
           </a>
-          <a>
+          <a
+            href="https://www.linkedin.com/in/simon-desdevises-ab11071a8/"
+            target="_blank"
+          >
             <div />
             <svg name="linkedin" viewBox="0 0 32 32">
               <path d="m27.26 27.271h-4.733v-7.427c0-1.771-.037-4.047-2.475-4.047-2.468 0-2.844 1.921-2.844 3.916v7.557h-4.739v-15.271h4.552v2.083h.061c.636-1.203 2.183-2.468 4.491-2.468 4.801 0 5.692 3.161 5.692 7.271v8.385zm-20.145-17.359c-1.527 0-2.751-1.235-2.751-2.756 0-1.516 1.229-2.749 2.751-2.749s2.755 1.233 2.755 2.749c0 1.521-1.233 2.756-2.755 2.756zm2.374 17.359h-4.749v-15.271h4.749zm20.147-27.271h-27.276c-1.303 0-2.36 1.031-2.36 2.307v27.387c0 1.276 1.057 2.307 2.36 2.307h27.271c1.301 0 2.369-1.031 2.369-2.307v-27.387c0-1.276-1.068-2.307-2.369-2.307z" />

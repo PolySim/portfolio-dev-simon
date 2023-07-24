@@ -44,7 +44,10 @@ export default function App(): JSX.Element {
         <Contact />
       </Container>
 
-      <ArrowNav setSectionViewing={setSectionViewing} />
+      <ArrowNav
+        setSectionViewing={setSectionViewing}
+        last={sectionViewing === 3 && !isScrolling}
+      />
     </>
   );
 }

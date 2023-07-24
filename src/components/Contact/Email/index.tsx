@@ -79,6 +79,7 @@ export default function Email(): JSX.Element {
           <div />
           <p>Send Message</p>
         </button>
+        <div />
       </div>
     </EmailStyle>
   );

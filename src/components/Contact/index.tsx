@@ -7,7 +7,9 @@ export default function Contact(): JSX.Element {
       <Email />
       <div>
         <p>A request ?</p>
-        <p>Contact me !</p>
+        <p>
+          Contact me !<span />
+        </p>
         <div>
           <a>
             <svg name="github" viewBox="0 0 24 24">

@@ -130,7 +130,7 @@ export const SectionNavBar = styled.div<{
   selected: boolean;
   last: "true" | "false";
 }>`
-  color: ${(props) => (props.selected ? "#de3c4b" : "#fff")};
+  color: ${(props) => (props.selected ? "hsla(350, 91%, 65%, 1)" : "#fff")};
   transition: color 0.15s ease-in;
   cursor: pointer;
   padding: 12px 12px;
@@ -412,6 +412,7 @@ export const ContactStyle = styled.section`
     }
 
     > p:nth-of-type(2) {
+      position: relative;
       margin-top: 12px;
       margin-bottom: 48px;
       background: linear-gradient(
@@ -422,6 +423,21 @@ export const ContactStyle = styled.section`
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      > span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(40px);
+        opacity: 0.15;
+        background: linear-gradient(
+          90deg,
+          hsla(329, 91%, 65%, 1) 0%,
+          hsla(350, 91%, 65%, 1) 100%
+        );
+      }
     }
 
     // Social link
@@ -568,8 +584,24 @@ export const EmailStyle = styled.form`
 
   /* Submit */
   > div:nth-of-type(3) {
+    position: relative;
     margin-top: 48px;
     width: 100%;
+
+    > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        hsla(329, 91%, 65%, 1) 0%,
+        hsla(350, 91%, 65%, 1) 100%
+      );
+      opacity: 0.1;
+      filter: blur(40px);
+    }
 
     > button {
       display: flex;
@@ -578,7 +610,7 @@ export const EmailStyle = styled.form`
       position: relative;
 
       width: 100%;
-      font-size: 34px;
+      font-size: 38px;
       padding: 12px 0;
       background-color: #1e1e1e;
       border: none;
@@ -587,7 +619,7 @@ export const EmailStyle = styled.form`
       z-index: 10;
       overflow: hidden;
 
-      &:hover > div {
+      &:hover {
         opacity: 1;
       }
 
@@ -608,7 +640,9 @@ export const EmailStyle = styled.form`
         transition: 0.15s ease-in;
       }
 
-      p {
+      > p {
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 6px;
         background: linear-gradient(
           90deg,
           hsla(329, 91%, 65%, 1) 0%,

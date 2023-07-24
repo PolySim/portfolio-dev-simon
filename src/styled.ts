@@ -147,6 +147,7 @@ export const ArrowDown = styled.div`
   bottom: 48px;
   left: 50%;
   transform: translateX(-50px);
+  z-index: 100;
 
   width: 86px;
   height: 86px;
@@ -398,8 +399,88 @@ export const ContactStyle = styled.section`
 
   color: #fff;
 
+  // Right part
   > div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     width: 500px;
+
+    > p {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 96px;
+    }
+
+    > p:nth-of-type(2) {
+      margin-top: 12px;
+      margin-bottom: 48px;
+      background: linear-gradient(
+        90deg,
+        hsla(329, 91%, 65%, 1) 0%,
+        hsla(350, 91%, 65%, 1) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    // Social link
+    > div {
+      display: flex;
+      justify-content: start;
+      width: 100%;
+      height: 50px;
+
+      > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-radius: 20px;
+        width: 60px;
+        height: 60px;
+        margin-right: 48px;
+        transition: 0.3s ease-in;
+
+        &:hover {
+          transform: translateY(-12px);
+
+          > svg > path {
+            transition-delay: 0.1s;
+            fill: #0f0f0f;
+          }
+        }
+
+        // Background
+        > div {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          transition: 0.3s ease-in;
+          background: linear-gradient(
+            90deg,
+            hsla(329, 91%, 65%, 1) 0%,
+            hsla(350, 91%, 65%, 1) 100%
+          );
+          border-radius: 20px;
+          z-index: -1;
+        }
+
+        &:hover > div {
+          opacity: 1;
+        }
+
+        > svg {
+          height: 38px;
+          width: 38px;
+
+          > path {
+            fill: #fff;
+          }
+        }
+      }
+    }
   }
 `;
 

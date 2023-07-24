@@ -619,7 +619,7 @@ export const EmailStyle = styled.form`
       z-index: 10;
       overflow: hidden;
 
-      &:hover {
+      &:hover > div {
         opacity: 1;
       }
 
@@ -640,7 +640,7 @@ export const EmailStyle = styled.form`
         transition: 0.15s ease-in;
       }
 
-      > p {
+      p {
         font-family: "Bebas Neue", sans-serif;
         letter-spacing: 6px;
         background: linear-gradient(

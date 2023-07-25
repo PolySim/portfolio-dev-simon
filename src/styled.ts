@@ -41,24 +41,24 @@ export const IntroductionStyled = styled.section`
 `;
 
 const presentationInfinite = keyframes`
-	0%{
-		transform: translateY(24px);
-	}
-	45%,50%{
-		transform: translateY(-24px);
-	}
-	95%, 100%{
-		transform: translateY(24px);
-	}
+  0% {
+    transform: translateY(24px);
+  }
+  45%, 50% {
+    transform: translateY(-24px);
+  }
+  95%, 100% {
+    transform: translateY(24px);
+  }
 `;
 
 const nameGradient = keyframes`
-	0%{
-		background-position: 0;
-	}
-	100%{
-		background-position: 400%;
-	}
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 400%;
+  }
 `;
 
 export const Presentation = styled.div`
@@ -314,6 +314,7 @@ export const ProjectStyle = styled.div`
   }
 
   /* Card */
+
   > div {
     position: relative;
     transform-style: preserve-3d;
@@ -349,6 +350,7 @@ export const ProjectStyle = styled.div`
     }
 
     /* Back */
+
     > div:nth-of-type(2) {
       display: flex;
       flex-direction: column;
@@ -407,7 +409,7 @@ export const ContactStyle = styled.section`
     display: flex;
     flex-direction: column;
     align-items: start;
-    width: 500px;
+    width: min(500px, fit-content);
 
     > p {
       font-family: "Bebas Neue", sans-serif;
@@ -527,6 +529,7 @@ export const EmailStyle = styled.form`
   font-size: 14px;
 
   /* Name & Email */
+
   > div:nth-of-type(1) {
     display: flex;
     justify-content: space-between;
@@ -566,6 +569,7 @@ export const EmailStyle = styled.form`
   }
 
   /* Message */
+
   > div:nth-of-type(2) {
     display: flex;
     flex-direction: column;
@@ -605,6 +609,7 @@ export const EmailStyle = styled.form`
   }
 
   /* Submit */
+
   > div:nth-of-type(3) {
     position: relative;
     margin-top: 48px;

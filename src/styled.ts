@@ -699,3 +699,23 @@ export const MessageValid = styled.span<{ $isValid?: boolean }>`
   background-color: ${(props) => (props.$isValid ? "#28a745" : "#dc3545")};
   margin-bottom: 24px;
 `;
+
+export const EncryptStyle = styled.section`
+  scroll-snap-align: center;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  > p {
+  }
+
+  > form {
+  }
+
+  > div {
+  }
+`;

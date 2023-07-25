@@ -33,9 +33,8 @@ def create_iv():
 @application.route('/encrypt')
 def encrypt():
     try:
-        # args = request.json
-        # message = args['message']
-        message = 'Ceci est un test'
+        args = request.json
+        message = args['message']
         iv = bytes(create_iv(), 'utf-8')
         key = bytes(KEY, 'utf-8')
         cipher = AES.new(key, AES.MODE_CBC, iv)
@@ -58,9 +57,10 @@ def encrypt():
 @application.route('/decrypt')
 def decrypt():
     try:
-        iv = "7308282694379371"
-        encrypted_message_base64 = "wCUEMC7K+xLH5qX/dlUqsw=="
-        key = b'KQbcXhLfTiTi_EOo7yy87%YTz7Ll6YZ0'
+        args = request.json
+        encrypted_message_base64 = args['message']
+        iv = args['iv']
+        key = bytes(KEY, 'utf-8')
         encrypted_data = base64.b64decode(encrypted_message_base64.encode())
         cipher = AES.new(key, AES.MODE_CBC, bytes(iv, 'utf-8'))
         decrypted_data = cipher.decrypt(encrypted_data)

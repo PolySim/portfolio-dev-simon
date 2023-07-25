@@ -10,6 +10,10 @@ const sections: Sections = [
     width: 78.17,
   },
   {
+    name: "Encrypt",
+    width: 108.75,
+  },
+  {
     name: " Projects",
     width: 112.52,
   },

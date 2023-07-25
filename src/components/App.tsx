@@ -8,6 +8,7 @@ import { HandleScroll } from "@/type";
 import { useScrolling } from "react-use";
 import Projects from "./Projects";
 import Contact from "./Contact";
+import Encrypt from "@/components/Encrypt";
 
 export default function App(): JSX.Element {
   const [sectionViewing, setSectionViewing] = useState<number>(0);
@@ -40,13 +41,14 @@ export default function App(): JSX.Element {
       >
         <Introduction />
         <Skills />
+        <Encrypt />
         <Projects />
         <Contact />
       </Container>
 
       <ArrowNav
         setSectionViewing={setSectionViewing}
-        last={sectionViewing === 3 && !isScrolling}
+        last={sectionViewing === 4 && !isScrolling}
       />
     </>
   );

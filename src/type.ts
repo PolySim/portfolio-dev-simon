@@ -42,3 +42,18 @@ export type FormValue = {
   email: string;
   message: string;
 };
+
+export type Encrypted = {
+  message: string;
+  iv: string;
+};
+
+export type Decrypted = {
+  message: string;
+};
+
+export type EncryptForm = {
+  message: string;
+};
+
+export type EncryptFormSubmit = (props: EncryptForm) => void;

@@ -3,6 +3,8 @@
 interface ImportMetaEnv {
   readonly VITE_APP_TITLE: string;
   readonly VITE_PUBLIC_KEY_EMAILJS: string;
+  readonly VITE_PUBLIC_BACK_URL_DEV: string;
+  readonly VITE_PUBLIC_BACK_URL_PROD: string;
 }
 
 interface ImportMeta {

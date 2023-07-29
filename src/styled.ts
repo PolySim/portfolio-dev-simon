@@ -764,14 +764,6 @@ export const EncryptStyle = styled.section`
       line-height: 28px;
     }
   }
-
-  > div:nth-of-type(2) {
-    color: white;
-
-    p {
-      color: white;
-    }
-  }
 `;
 
 const encryptToDecrypt = keyframes`
@@ -841,4 +833,8 @@ export const ButtonEncrypt = styled.div<{
         : decryptToEncrypt} .5s ease-in-out forwards;;
   }
 }
+`;
+
+export const MessageResultStyle = styled.div`
+  color: white;
 `;

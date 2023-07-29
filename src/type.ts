@@ -57,3 +57,13 @@ export type EncryptForm = {
 };
 
 export type EncryptFormSubmit = (props: EncryptForm) => void;
+
+export type EncryptResult = {
+  iv: string;
+  message: string;
+};
+
+export type ChangeEncryptProps = {
+  encrypt: boolean;
+  setEncrypt: React.Dispatch<React.SetStateAction<boolean>>;
+};

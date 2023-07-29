@@ -4,10 +4,14 @@ const API_KEY = import.meta.env.PROD
   ? import.meta.env.VITE_PUBLIC_BACK_URL_PROD
   : import.meta.env.VITE_PUBLIC_BACK_URL_DEV;
 
-export default async function getEncrypt(message: string): Promise<Decrypted> {
+export default async function getDecrypt(
+  message: string,
+  iv: string,
+): Promise<Decrypted> {
   const res = await fetch(`${API_KEY}/decrypt`, {
-    method: "GET",
+    method: "POST",
     body: JSON.stringify({
+      iv: iv,
       message: message,
     }),
     headers: {

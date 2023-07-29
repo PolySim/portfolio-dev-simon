@@ -30,18 +30,22 @@ def create_iv():
     return iv
 
 
-@application.route('/encrypt')
+def message_16_bytes(message):
+    number_space = 16 - (len(message) % 16)
+    return message + ' ' * number_space
+
+
+@application.route('/encrypt', methods=['POST'])
 def encrypt():
     try:
         args = request.json
         message = args['message']
+        message = message_16_bytes(message)
         iv = bytes(create_iv(), 'utf-8')
         key = bytes(KEY, 'utf-8')
         cipher = AES.new(key, AES.MODE_CBC, iv)
-        # encrypted_message = cipher.encrypt(message.encode("utf-8"))
         encrypted_message = cipher.encrypt(message.encode())
         encrypted_base64 = base64.b64encode(encrypted_message).decode()
-        # base64.b64decode(str(encrypted_message))
         return flask.jsonify({
             'message': encrypted_base64,
             'iv': str(iv.decode('utf-8'))
@@ -54,7 +58,7 @@ def encrypt():
         return response
 
 
-@application.route('/decrypt')
+@application.route('/decrypt', methods=['POST'])
 def decrypt():
     try:
         args = request.json

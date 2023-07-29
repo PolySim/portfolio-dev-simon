@@ -6,7 +6,7 @@ const API_KEY = import.meta.env.PROD
 
 export default async function getEncrypt(message: string): Promise<Encrypted> {
   const res = await fetch(`${API_KEY}/encrypt`, {
-    method: "GET",
+    method: "POST",
     body: JSON.stringify({
       message: message,
     }),

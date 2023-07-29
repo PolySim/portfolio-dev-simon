@@ -9,7 +9,7 @@ export default function ArrowNav({
   setSectionViewing: React.Dispatch<React.SetStateAction<number>>;
 }): JSX.Element {
   const handleClick = () => {
-    setSectionViewing((curr) => (curr === 3 ? 3 : curr + 1));
+    setSectionViewing((curr) => (curr === 4 ? 4 : curr + 1));
   };
 
   return (

@@ -710,12 +710,135 @@ export const EncryptStyle = styled.section`
   align-items: center;
   justify-content: space-evenly;
 
-  > p {
+  > form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+
+    // Input
+    > div:nth-of-type(1) {
+      position: relative;
+      width: 80%;
+
+      > input {
+        box-sizing: border-box;
+        width: 100%;
+        outline: none;
+        padding: 15px 25px;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        border: none;
+        font-size: 18px;
+      }
+
+      > button {
+        position: absolute;
+        height: 32px;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        outline: none;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        > svg {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
   }
 
-  > form {
+  > div:nth-of-type(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    opacity: 0.9;
+
+    > p {
+      text-align: center;
+      color: white;
+      line-height: 28px;
+    }
+  }
+
+  > div:nth-of-type(2) {
+    color: white;
+
+    p {
+      color: white;
+    }
+  }
+`;
+
+const encryptToDecrypt = keyframes`
+  50% {
+    width: 53px;
+    left: 3px;
+  }
+  50%, 51% {
+    width: 53px;
+    right: 3px
+  }
+  100% {
+    left: 28px;
+    width: 28px;
+  }
+`;
+
+const decryptToEncrypt = keyframes`
+  0% {
+    left: 28px;
+    width: 28px;
+  }
+  50% {
+    width: 53px;
+    left: 3px;
+  }
+  100% {
+    left: 3px;
+    width: 28px;
+  }
+`;
+
+export const ButtonEncrypt = styled.div<{
+  $encrypt: boolean;
+}>`
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  width: 60px;
+  height: 36px;
+  border-radius: 20px;
+  margin-left: 24px;
+  background: linear-gradient(90deg,
+  hsla(329, 91%, 65%, 1) 0%,
+  hsla(350, 91%, 65%, 1) 100%);
+
+  > svg {
+    width: 20px;
+    height: 20px;
   }
 
   > div {
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+    border-radius: 14px;
+    height: 28px;
+    width: 28px;
+    background-color: white;
+
+    animation: ${(props) =>
+      props.$encrypt
+        ? encryptToDecrypt
+        : decryptToEncrypt} .5s ease-in-out forwards;;
   }
+}
 `;

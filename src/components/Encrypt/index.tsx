@@ -60,7 +60,7 @@ export default function Encrypt(): JSX.Element {
         </div>
         <ButtonChangeEncrypt encrypt={encrypt} setEncrypt={setEncrypt} />
       </form>
-      <MessageResult message={result.message} />
+      <MessageResult iv={result.iv} message={result.message} />
     </EncryptStyle>
   );
 }

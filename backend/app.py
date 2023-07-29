@@ -8,6 +8,7 @@ import base64
 from random import randint
 from dotenv import load_dotenv
 import os
+import unicodedata
 
 application = Flask(__name__)
 CORS(application, supports_credentials=True)
@@ -35,12 +36,17 @@ def message_16_bytes(message):
     return message + ' ' * number_space
 
 
+def delete_accents(message):
+    return ''.join(c for c in unicodedata.normalize('NFD', message) if unicodedata.category(c) != 'Mn')
+
+
 @application.route('/encrypt', methods=['POST'])
 def encrypt():
     try:
         args = request.json
         message = args['message']
         message = message_16_bytes(message)
+        message = delete_accents(message)
         iv = bytes(create_iv(), 'utf-8')
         key = bytes(KEY, 'utf-8')
         cipher = AES.new(key, AES.MODE_CBC, iv)

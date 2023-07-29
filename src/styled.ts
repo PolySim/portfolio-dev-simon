@@ -708,24 +708,25 @@ export const EncryptStyle = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 
   > form {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 80%;
+    margin-bottom: 48px;
 
     // Input
     > div:nth-of-type(1) {
       position: relative;
-      width: 80%;
+      width: 90%;
 
       > input {
         box-sizing: border-box;
         width: 100%;
         outline: none;
-        padding: 15px 25px;
+        padding: 15px 48px 15px 25px;
         background-color: #f0f0f0;
         border-radius: 20px;
         border: none;
@@ -757,6 +758,7 @@ export const EncryptStyle = styled.section`
     align-items: center;
     width: 80%;
     opacity: 0.9;
+    margin-bottom: 72px;
 
     > p {
       text-align: center;
@@ -836,5 +838,47 @@ export const ButtonEncrypt = styled.div<{
 `;
 
 export const MessageResultStyle = styled.div`
+  position: relative;
+  width: 80%;
+  height: 200px;
+  background: linear-gradient(
+    90deg,
+    hsla(329, 91%, 65%, 1) 0%,
+    hsla(350, 91%, 65%, 1) 100%
+  );
   color: white;
+  border-radius: 20px;
+  box-sizing: border-box;
+
+  > h3 {
+    padding: 10px 25px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 20px 20px 0 0;
+  }
+
+  > p {
+    padding: 10px 25px;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    max-height: 75px;
+  }
+
+  > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      hsla(329, 91%, 65%, 1) 0%,
+      hsla(350, 91%, 65%, 1) 100%
+    );
+    opacity: 0.4;
+    filter: blur(30px);
+  }
 `;

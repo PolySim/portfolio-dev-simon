@@ -41,24 +41,24 @@ export const IntroductionStyled = styled.section`
 `;
 
 const presentationInfinite = keyframes`
-	0%{
-		transform: translateY(24px);
-	}
-	45%,50%{
-		transform: translateY(-24px);
-	}
-	95%, 100%{
-		transform: translateY(24px);
-	}
+  0% {
+    transform: translateY(24px);
+  }
+  45%, 50% {
+    transform: translateY(-24px);
+  }
+  95%, 100% {
+    transform: translateY(24px);
+  }
 `;
 
 const nameGradient = keyframes`
-	0%{
-		background-position: 0;
-	}
-	100%{
-		background-position: 400%;
-	}
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 400%;
+  }
 `;
 
 export const Presentation = styled.div`
@@ -314,6 +314,7 @@ export const ProjectStyle = styled.div`
   }
 
   /* Card */
+
   > div {
     position: relative;
     transform-style: preserve-3d;
@@ -349,6 +350,7 @@ export const ProjectStyle = styled.div`
     }
 
     /* Back */
+
     > div:nth-of-type(2) {
       display: flex;
       flex-direction: column;
@@ -407,7 +409,7 @@ export const ContactStyle = styled.section`
     display: flex;
     flex-direction: column;
     align-items: start;
-    width: 500px;
+    width: min(500px, fit-content);
 
     > p {
       font-family: "Bebas Neue", sans-serif;
@@ -527,6 +529,7 @@ export const EmailStyle = styled.form`
   font-size: 14px;
 
   /* Name & Email */
+
   > div:nth-of-type(1) {
     display: flex;
     justify-content: space-between;
@@ -566,6 +569,7 @@ export const EmailStyle = styled.form`
   }
 
   /* Message */
+
   > div:nth-of-type(2) {
     display: flex;
     flex-direction: column;
@@ -605,6 +609,7 @@ export const EmailStyle = styled.form`
   }
 
   /* Submit */
+
   > div:nth-of-type(3) {
     position: relative;
     margin-top: 48px;
@@ -693,4 +698,187 @@ export const MessageValid = styled.span<{ $isValid?: boolean }>`
   border-radius: 15px;
   background-color: ${(props) => (props.$isValid ? "#28a745" : "#dc3545")};
   margin-bottom: 24px;
+`;
+
+export const EncryptStyle = styled.section`
+  scroll-snap-align: center;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 48px;
+
+    // Input
+    > div:nth-of-type(1) {
+      position: relative;
+      width: 90%;
+
+      > input {
+        box-sizing: border-box;
+        width: 100%;
+        outline: none;
+        padding: 15px 48px 15px 25px;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        border: none;
+        font-size: 18px;
+      }
+
+      > button {
+        position: absolute;
+        height: 32px;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        outline: none;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        > svg {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  > div:nth-of-type(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    opacity: 0.9;
+    margin-bottom: 72px;
+
+    > p {
+      text-align: center;
+      color: white;
+      line-height: 28px;
+    }
+  }
+`;
+
+const encryptToDecrypt = keyframes`
+  50% {
+    width: 53px;
+    left: 3px;
+  }
+  50%, 51% {
+    width: 53px;
+    right: 3px
+  }
+  100% {
+    left: 28px;
+    width: 28px;
+  }
+`;
+
+const decryptToEncrypt = keyframes`
+  0% {
+    left: 28px;
+    width: 28px;
+  }
+  50% {
+    width: 53px;
+    left: 3px;
+  }
+  100% {
+    left: 3px;
+    width: 28px;
+  }
+`;
+
+export const ButtonEncrypt = styled.div<{
+  $encrypt: boolean;
+}>`
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  width: 60px;
+  height: 36px;
+  border-radius: 20px;
+  margin-left: 24px;
+  background: linear-gradient(90deg,
+  hsla(329, 91%, 65%, 1) 0%,
+  hsla(350, 91%, 65%, 1) 100%);
+
+  > svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  > div {
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+    border-radius: 14px;
+    height: 28px;
+    width: 28px;
+    background-color: white;
+
+    animation: ${(props) =>
+      props.$encrypt
+        ? encryptToDecrypt
+        : decryptToEncrypt} .5s ease-in-out forwards;;
+  }
+}
+`;
+
+export const MessageResultStyle = styled.div`
+  position: relative;
+  width: 80%;
+  height: 200px;
+  background: linear-gradient(
+    90deg,
+    hsla(329, 91%, 65%, 1) 0%,
+    hsla(350, 91%, 65%, 1) 100%
+  );
+  color: white;
+  border-radius: 20px;
+  box-sizing: border-box;
+
+  > h3 {
+    padding: 10px 25px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 20px 20px 0 0;
+  }
+
+  > p {
+    padding: 10px 25px;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    max-height: 75px;
+  }
+
+  > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      hsla(329, 91%, 65%, 1) 0%,
+      hsla(350, 91%, 65%, 1) 100%
+    );
+    opacity: 0.4;
+    filter: blur(30px);
+  }
 `;

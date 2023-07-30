@@ -404,6 +404,24 @@ export const ProjectsStyle = styled.section`
     height: 75%;
     width: 400px;
   }
+
+  @media screen and (max-width: 900px) {
+    position: relative;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    justify-content: start;
+    padding-top: 50px;
+    box-sizing: border-box;
+    > div {
+      scroll-snap-align: center;
+      min-width: 100vw;
+      height: 100vh;
+      justify-content: center;
+    }
+  }
 `;
 
 export const ProjectStyle = styled.div`
@@ -481,6 +499,10 @@ export const ProjectStyle = styled.div`
           border: 2px solid #361f27;
           font-size: 16px;
           text-decoration: none;
+
+          @media screen and (max-width: 900px) {
+            font-size: 14px;
+          }
         }
 
         > a:nth-of-type(1) {
@@ -495,6 +517,47 @@ export const ProjectStyle = styled.div`
         }
       }
     }
+  }
+
+  @media screen and (max-width: 900px) {
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    margin-bottom: 48px;
+    > div {
+      width: 75%;
+      text-align: center;
+    }
+  }
+`;
+
+export const NavIntoProjectStyle = styled.span<{ $firstPage: boolean }>`
+  display: flex;
+  position: fixed;
+  top: 28px;
+  right: 50px;
+  height: 50px;
+  width: 124px;
+
+  > div {
+    height: 100%;
+    width: 50px;
+    transition: opacity 0.2s ease-out;
+
+    > svg {
+      height: 100%;
+      width: 100%;
+      fill: #f1f1f1;
+    }
+  }
+
+  > div:nth-of-type(1) {
+    opacity: ${(props) => (props.$firstPage ? "0.4" : "1")};
+    margin-right: 24px;
+  }
+
+  > div:nth-of-type(2) {
+    opacity: ${(props) => (props.$firstPage ? "1" : "0.4")};
   }
 `;
 

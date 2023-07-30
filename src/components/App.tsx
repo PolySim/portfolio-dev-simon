@@ -60,7 +60,10 @@ export default function App(): JSX.Element {
         <Introduction />
         <Skills phoneMode={windowWiwth < 700} />
         <Encrypt phoneMode={windowWiwth < 1000} />
-        <Projects />
+        <Projects
+          phoneMode={windowWiwth < 900}
+          visible={sectionViewing === 3}
+        />
         <Contact />
       </Container>
 

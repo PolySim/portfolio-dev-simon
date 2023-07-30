@@ -115,6 +115,79 @@ export const NavBarStyle = styled.header`
   border-radius: 12px;
 `;
 
+export const NavBarPhoneStyle = styled.div<{ $open: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0f0f0f;
+  z-index: 1000;
+  font-size: 24px;
+  color: #f3eff5;
+  transition: transform 0.3s ease-in-out;
+  transform: ${(props) =>
+    props.$open ? "translateX(0)" : "translateX(-100%)"};
+
+  // Cross
+  > div:nth-of-type(1) {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease-in-out;
+    transform: ${(props) =>
+      props.$open ? "translateX(0)" : "translateX(100vw)"};
+
+    > span {
+      position: absolute;
+      background-color: #f1f1f1;
+      height: 2px;
+      width: 50px;
+      transition:
+        transform 0.3s ease-out,
+        opacity 0.1s ease-out;
+    }
+
+    > span:nth-of-type(1) {
+      transform: ${(props) =>
+        props.$open ? "translateY(0) rotate(135deg)" : "translateY(-10px)"};
+    }
+
+    > span:nth-of-type(2) {
+      opacity: ${(props) => (props.$open ? "0" : "1")};
+    }
+
+    > span:nth-of-type(3) {
+      transform: ${(props) =>
+        props.$open ? "translateY(0) rotate(-135deg)" : "translateY(10px)"};
+    }
+  }
+
+  // Sections
+  > div:nth-of-type(2) {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 12px;
+    font-size: 60px;
+    text-align: center;
+  }
+`;
+
+export const Section = styled.section<{ $selected: boolean }>`
+  cursor: pointer;
+  ${(props) =>
+    props.$selected
+      ? "background: linear-gradient( 90deg, hsla(329, 91%, 65%, 1) 0%, hsla(350, 91%, 65%, 1) 100% );\n" +
+        "    -webkit-background-clip: text;\n" +
+        "    background-clip: text;\n" +
+        "    -webkit-text-fill-color: transparent;"
+      : ""}
+`;
+
 export const BackgroundHover = styled.span<{ width: number; position: number }>`
   position: absolute;
   left: 0;

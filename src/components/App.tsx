@@ -9,11 +9,13 @@ import { useScrolling } from "react-use";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import Encrypt from "@/components/Encrypt";
+import NavBarPhone from "@/components/NavBar/navBarPhone.tsx";
 
 export default function App(): JSX.Element {
   const [sectionViewing, setSectionViewing] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const isScrolling = useScrolling(containerRef);
+  const [windowWiwth, setWindowWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
     const element = containerRef.current;
@@ -21,6 +23,16 @@ export default function App(): JSX.Element {
       element.scrollTop = sectionViewing * window.innerHeight;
     }
   }, [sectionViewing, isScrolling]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      console.log(windowWiwth);
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [windowWiwth]);
 
   const handleScroll: HandleScroll = (element) => {
     if (element) {
@@ -30,10 +42,17 @@ export default function App(): JSX.Element {
 
   return (
     <>
-      <NavBar
-        sectionViewing={sectionViewing}
-        setSectionViewing={setSectionViewing}
-      />
+      {windowWiwth > 1000 ? (
+        <NavBar
+          sectionViewing={sectionViewing}
+          setSectionViewing={setSectionViewing}
+        />
+      ) : (
+        <NavBarPhone
+          sectionViewing={sectionViewing}
+          setSectionViewing={setSectionViewing}
+        />
+      )}
 
       <Container
         ref={containerRef}

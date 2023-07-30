@@ -1,3 +1,6 @@
+this_file = "venv/bin/activate_this.py"
+exec(open(this_file).read(), {'__file__': this_file})
+
 from flask import Flask, request, send_file, render_template
 import flask
 from flask_cors import CORS
@@ -16,10 +19,40 @@ load_dotenv()
 KEY = os.getenv('ENCRYPTION_KEY')
 
 
+def add_response_headers(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
+    response.headers.add('Access-Control-Allow-Headers',
+                         'Content-Type,Authorization,Cache-Control')
+    response.headers.add('Access-Control-Allow-Methods',
+                         'GET,PUT,POST,DELETE,OPTIONS')
+    return response
+
+
 # test connection
 @application.route('/hello')
 def hello_world():
     return "Hello World"
+
+
+@application.route('/')
+def send_html():
+    return send_file('dist/index.html')
+
+
+@application.route('/assets/<file>')
+def send_assert(file=None):
+    return send_file(f'dist/assets/{file}')
+
+
+@application.route('/<folder>/<file>')
+def send_image(folder=None, file=None):
+    return send_file(f'dist/{folder}/{file}')
+
+
+@application.route('/me.png')
+def send_me_image():
+    return send_file('dist/me.png')
 
 
 def create_iv():

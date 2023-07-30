@@ -653,15 +653,6 @@ export const ContactStyle = styled.section`
           height: 60px;
           transition: 0.3s ease-in;
 
-          //&:hover {
-          //  transform: translateY(-12px);
-          //
-          //  > svg > path {
-          //    transition-delay: 0.1s;
-          //    fill: #0f0f0f;
-          //  }
-          //}
-
           // Background
           > div {
             position: absolute;
@@ -690,10 +681,52 @@ export const ContactStyle = styled.section`
       }
     }
   }
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    padding-top: 24px;
+
+    > div {
+      width: 80%;
+
+      > p {
+        display: none;
+      }
+
+      > div {
+        justify-content: space-around;
+
+        > div {
+          margin-right: 0;
+          width: fit-content;
+
+          > a {
+            width: 40px;
+            height: 40px;
+
+            > svg {
+              width: 24px;
+              height: 24px;
+
+              > path {
+                transition-delay: 0.1s;
+                fill: #0f0f0f;
+              }
+            }
+
+            > div {
+              border-radius: 12px;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
 `;
 
 export const EmailStyle = styled.form`
-  width: 500px;
+  width: min(80%, 500px);
   font-size: 14px;
 
   /* Name & Email */

@@ -12,7 +12,7 @@ import MessageResult from "@/components/Encrypt/MessageResult.tsx";
 export default function Encrypt(): JSX.Element {
   const [result, setResult] = useState<EncryptResult>({
     iv: "",
-    message: "Hello world",
+    message: "",
   });
   const [encrypt, setEncrypt] = useState<boolean>(true);
   const { register, handleSubmit } = useForm<EncryptForm>();
@@ -30,10 +30,11 @@ export default function Encrypt(): JSX.Element {
 
   async function fetchDecrypt(data: EncryptForm) {
     try {
-      const r = await getDecrypt(result.iv, data.message);
+      const r = await getDecrypt(data.message, result.iv);
       setResult((curr) => ({ ...curr, message: r.message }));
       console.log("finish without error");
     } catch (error) {
+      setResult((curr) => ({ ...curr, message: "decryption not possible" }));
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       console.log(`error : ${error}`);
     }

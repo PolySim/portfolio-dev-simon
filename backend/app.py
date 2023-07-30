@@ -1,8 +1,6 @@
 from flask import Flask, request, send_file, render_template
 import flask
 from flask_cors import CORS
-import json
-from Crypto.Util.Padding import unpad
 from Crypto.Cipher import AES
 import base64
 from random import randint

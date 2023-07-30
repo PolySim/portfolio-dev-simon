@@ -37,6 +37,10 @@ export const IntroductionStyled = styled.section`
       object-fit: cover;
       border-radius: 200px 200px 0 0;
     }
+
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
   }
 `;
 

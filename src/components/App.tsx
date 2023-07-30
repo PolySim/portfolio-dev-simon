@@ -27,7 +27,6 @@ export default function App(): JSX.Element {
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
-      console.log(windowWiwth);
     };
     window.addEventListener("resize", handleResize);
 

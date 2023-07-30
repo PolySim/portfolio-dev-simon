@@ -59,7 +59,7 @@ export default function App(): JSX.Element {
       >
         <Introduction />
         <Skills phoneMode={windowWiwth < 700} />
-        <Encrypt />
+        <Encrypt phoneMode={windowWiwth < 1000} />
         <Projects />
         <Contact />
       </Container>

@@ -9,7 +9,11 @@ import SubmitEncrypt from "@/components/Encrypt/submit.tsx";
 import ExplainAES from "@/components/Encrypt/title.tsx";
 import MessageResult from "@/components/Encrypt/MessageResult.tsx";
 
-export default function Encrypt(): JSX.Element {
+export default function Encrypt({
+  phoneMode,
+}: {
+  phoneMode: boolean;
+}): JSX.Element {
   const [result, setResult] = useState<EncryptResult>({
     iv: "",
     message: "",
@@ -50,7 +54,7 @@ export default function Encrypt(): JSX.Element {
 
   return (
     <EncryptStyle>
-      <ExplainAES />
+      <ExplainAES phoneMode={phoneMode} />
       <form
         /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
         onSubmit={handleSubmit(onSubmit)}

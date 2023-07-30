@@ -295,6 +295,7 @@ export const SkillsStyle = styled.section`
       color: #9c1a1c;
       scroll-snap-align: center;
       min-width: 100vw;
+      margin-top: 50px;
     }
 
     h3 {
@@ -870,6 +871,20 @@ export const EncryptStyle = styled.section`
       line-height: 28px;
     }
   }
+
+  @media screen and (max-width: 1000px) {
+    padding-top: 50px;
+    box-sizing: border-box;
+
+    > div:nth-of-type(1) {
+      margin-bottom: 24px;
+    }
+
+    > form {
+      flex-direction: column;
+      margin-bottom: 24px;
+    }
+  }
 `;
 
 const encryptToDecrypt = keyframes`
@@ -914,9 +929,11 @@ export const ButtonEncrypt = styled.div<{
   height: 36px;
   border-radius: 20px;
   margin-left: 24px;
-  background: linear-gradient(90deg,
-  hsla(329, 91%, 65%, 1) 0%,
-  hsla(350, 91%, 65%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(329, 91%, 65%, 1) 0%,
+    hsla(350, 91%, 65%, 1) 100%
+  );
 
   > svg {
     width: 20px;
@@ -934,11 +951,13 @@ export const ButtonEncrypt = styled.div<{
     background-color: white;
 
     animation: ${(props) =>
-      props.$encrypt
-        ? encryptToDecrypt
-        : decryptToEncrypt} .5s ease-in-out forwards;;
+        props.$encrypt ? encryptToDecrypt : decryptToEncrypt}
+      0.5s ease-in-out forwards;
   }
-}
+
+  @media screen and (max-width: 1000px) {
+    margin-top: 24px;
+  }
 `;
 
 export const MessageResultStyle = styled.div`
@@ -984,5 +1003,9 @@ export const MessageResultStyle = styled.div`
     );
     opacity: 0.4;
     filter: blur(30px);
+  }
+
+  @media screen and (max-width: 1000px) {
+    height: 300px;
   }
 `;

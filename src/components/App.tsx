@@ -58,7 +58,7 @@ export default function App(): JSX.Element {
         onScroll={() => handleScroll(containerRef.current)}
       >
         <Introduction />
-        <Skills />
+        <Skills phoneMode={windowWiwth < 700} />
         <Encrypt />
         <Projects />
         <Contact />

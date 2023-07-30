@@ -4,7 +4,8 @@ export const Container = styled.div`
   scroll-snap-type: y mandatory;
   width: 100vw;
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 `;
 
@@ -250,6 +251,10 @@ export const ArrowDown = styled.div<{ $last: boolean }>`
       stroke: #000;
     }
   }
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 export const SkillsStyle = styled.section`
@@ -279,6 +284,23 @@ export const SkillsStyle = styled.section`
     font-size: 40px;
     letter-spacing: 3px;
     margin-bottom: 48px;
+  }
+
+  @media screen and (max-width: 700px) {
+    scroll-snap-type: x mandatory;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    justify-content: start;
+    > div {
+      color: #9c1a1c;
+      scroll-snap-align: center;
+      min-width: 100vw;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
   }
 `;
 
@@ -356,6 +378,11 @@ export const SkillStyle = styled.div<{ background: string; name: string }>`
     width: 100%;
     height: 100%;
     z-index: 10;
+  }
+
+  @media screen and (max-width: 300px) {
+    width: 100px;
+    height: 100px;
   }
 `;
 

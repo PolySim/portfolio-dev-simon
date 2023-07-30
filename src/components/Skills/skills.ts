@@ -55,11 +55,11 @@ const skills: Skills = {
       doc: "https://github.com/PolySim",
     },
     {
-      name: "Obsidian",
-      path: "/skill/obsidian.png",
+      name: "NodeJS",
+      path: "/skill/nodejs.png",
       background:
         "linear-gradient(90deg, hsla(31, 90%, 76%, 1) 0%, hsla(302, 82%, 76%, 1) 100%)",
-      doc: "https://obsidian.md/",
+      doc: "https://nodejs.org/fr",
     },
   ],
 };

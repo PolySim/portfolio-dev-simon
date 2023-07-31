@@ -1,7 +1,7 @@
 import { EncryptStyle } from "@/styled.ts";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { EncryptForm, EncryptFormSubmit, EncryptResult } from "@/type.ts";
+import { Encrypted, EncryptFormSubmit } from "@/type.ts";
 import getEncrypt from "@/api/encryp.ts";
 import getDecrypt from "@/api/decrypt.ts";
 import ButtonChangeEncrypt from "@/components/Encrypt/buttonChangeEncrypt.tsx";
@@ -14,17 +14,14 @@ export default function Encrypt({
 }: {
   phoneMode: boolean;
 }): JSX.Element {
-  const [result, setResult] = useState<EncryptResult>({
-    iv: "",
-    message: "",
-  });
+  const [message, setMessage] = useState<string>("");
   const [encrypt, setEncrypt] = useState<boolean>(true);
-  const { register, handleSubmit } = useForm<EncryptForm>();
+  const { register, handleSubmit } = useForm<Encrypted>();
 
-  async function fetchEncrypt(data: EncryptForm) {
+  async function fetchEncrypt(data: Encrypted) {
     try {
       const r = await getEncrypt(data.message);
-      setResult((curr) => ({ ...curr, iv: r.iv, message: r.message }));
+      setMessage(r.message);
       console.log("finish without error");
     } catch (error) {
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
@@ -32,13 +29,13 @@ export default function Encrypt({
     }
   }
 
-  async function fetchDecrypt(data: EncryptForm) {
+  async function fetchDecrypt(data: Encrypted) {
     try {
-      const r = await getDecrypt(data.message, result.iv);
-      setResult((curr) => ({ ...curr, message: r.message }));
+      const r = await getDecrypt(data.message);
+      setMessage(r.message);
       console.log("finish without error");
     } catch (error) {
-      setResult((curr) => ({ ...curr, message: "decryption not possible" }));
+      setMessage("decryption not possible");
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       console.log(`error : ${error}`);
     }
@@ -65,7 +62,7 @@ export default function Encrypt({
         </div>
         <ButtonChangeEncrypt encrypt={encrypt} setEncrypt={setEncrypt} />
       </form>
-      <MessageResult iv={result.iv} message={result.message} />
+      <MessageResult message={message} />
     </EncryptStyle>
   );
 }

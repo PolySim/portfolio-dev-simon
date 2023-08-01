@@ -60,6 +60,11 @@ def send_me_image():
     return send_file('dist/me.png')
 
 
+@application.route('/simplicityDev.png')
+def send_favicon_image():
+    return send_file('dist/simplicityDev.png')
+
+
 def create_iv():
     iv = ''
     for i in range(16):

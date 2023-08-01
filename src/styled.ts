@@ -4,7 +4,8 @@ export const Container = styled.div`
   scroll-snap-type: y mandatory;
   width: 100vw;
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 `;
 
@@ -36,6 +37,10 @@ export const IntroductionStyled = styled.section`
       height: 100%;
       object-fit: cover;
       border-radius: 200px 200px 0 0;
+    }
+
+    @media screen and (max-width: 800px) {
+      display: none;
     }
   }
 `;
@@ -115,6 +120,79 @@ export const NavBarStyle = styled.header`
   border-radius: 12px;
 `;
 
+export const NavBarPhoneStyle = styled.div<{ $open: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0f0f0f;
+  z-index: 1000;
+  font-size: 24px;
+  color: #f3eff5;
+  transition: transform 0.3s ease-in-out;
+  transform: ${(props) =>
+    props.$open ? "translateX(0)" : "translateX(-100%)"};
+
+  // Cross
+  > div:nth-of-type(1) {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease-in-out;
+    transform: ${(props) =>
+      props.$open ? "translateX(0)" : "translateX(100vw)"};
+
+    > span {
+      position: absolute;
+      background-color: #f1f1f1;
+      height: 2px;
+      width: 50px;
+      transition:
+        transform 0.3s ease-out,
+        opacity 0.1s ease-out;
+    }
+
+    > span:nth-of-type(1) {
+      transform: ${(props) =>
+        props.$open ? "translateY(0) rotate(135deg)" : "translateY(-10px)"};
+    }
+
+    > span:nth-of-type(2) {
+      opacity: ${(props) => (props.$open ? "0" : "1")};
+    }
+
+    > span:nth-of-type(3) {
+      transform: ${(props) =>
+        props.$open ? "translateY(0) rotate(-135deg)" : "translateY(10px)"};
+    }
+  }
+
+  // Sections
+  > div:nth-of-type(2) {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 12px;
+    font-size: 60px;
+    text-align: center;
+  }
+`;
+
+export const Section = styled.section<{ $selected: boolean }>`
+  cursor: pointer;
+  ${(props) =>
+    props.$selected
+      ? "background: linear-gradient( 90deg, hsla(329, 91%, 65%, 1) 0%, hsla(350, 91%, 65%, 1) 100% );\n" +
+        "    -webkit-background-clip: text;\n" +
+        "    background-clip: text;\n" +
+        "    -webkit-text-fill-color: transparent;"
+      : ""}
+`;
+
 export const BackgroundHover = styled.span<{ width: number; position: number }>`
   position: absolute;
   left: 0;
@@ -173,6 +251,10 @@ export const ArrowDown = styled.div<{ $last: boolean }>`
       stroke: #000;
     }
   }
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 export const SkillsStyle = styled.section`
@@ -202,6 +284,24 @@ export const SkillsStyle = styled.section`
     font-size: 40px;
     letter-spacing: 3px;
     margin-bottom: 48px;
+  }
+
+  @media screen and (max-width: 700px) {
+    scroll-snap-type: x mandatory;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    justify-content: start;
+    > div {
+      color: #9c1a1c;
+      scroll-snap-align: center;
+      min-width: 100vw;
+      margin-top: 50px;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
   }
 `;
 
@@ -280,6 +380,11 @@ export const SkillStyle = styled.div<{ background: string; name: string }>`
     height: 100%;
     z-index: 10;
   }
+
+  @media screen and (max-width: 300px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 export const ProjectsStyle = styled.section`
@@ -298,6 +403,24 @@ export const ProjectsStyle = styled.section`
     justify-content: space-evenly;
     height: 75%;
     width: 400px;
+  }
+
+  @media screen and (max-width: 900px) {
+    position: relative;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    justify-content: start;
+    padding-top: 50px;
+    box-sizing: border-box;
+    > div {
+      scroll-snap-align: center;
+      min-width: 100vw;
+      height: 100vh;
+      justify-content: center;
+    }
   }
 `;
 
@@ -376,6 +499,10 @@ export const ProjectStyle = styled.div`
           border: 2px solid #361f27;
           font-size: 16px;
           text-decoration: none;
+
+          @media screen and (max-width: 900px) {
+            font-size: 14px;
+          }
         }
 
         > a:nth-of-type(1) {
@@ -390,6 +517,47 @@ export const ProjectStyle = styled.div`
         }
       }
     }
+  }
+
+  @media screen and (max-width: 900px) {
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    margin-bottom: 48px;
+    > div {
+      width: 75%;
+      text-align: center;
+    }
+  }
+`;
+
+export const NavIntoProjectStyle = styled.span<{ $firstPage: boolean }>`
+  display: flex;
+  position: fixed;
+  top: 28px;
+  right: 50px;
+  height: 50px;
+  width: 124px;
+
+  > div {
+    height: 100%;
+    width: 50px;
+    transition: opacity 0.2s ease-out;
+
+    > svg {
+      height: 100%;
+      width: 100%;
+      fill: #f1f1f1;
+    }
+  }
+
+  > div:nth-of-type(1) {
+    opacity: ${(props) => (props.$firstPage ? "0.4" : "1")};
+    margin-right: 24px;
+  }
+
+  > div:nth-of-type(2) {
+    opacity: ${(props) => (props.$firstPage ? "1" : "0.4")};
   }
 `;
 
@@ -485,15 +653,6 @@ export const ContactStyle = styled.section`
           height: 60px;
           transition: 0.3s ease-in;
 
-          //&:hover {
-          //  transform: translateY(-12px);
-          //
-          //  > svg > path {
-          //    transition-delay: 0.1s;
-          //    fill: #0f0f0f;
-          //  }
-          //}
-
           // Background
           > div {
             position: absolute;
@@ -522,10 +681,52 @@ export const ContactStyle = styled.section`
       }
     }
   }
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    padding-top: 24px;
+
+    > div {
+      width: 80%;
+
+      > p {
+        display: none;
+      }
+
+      > div {
+        justify-content: space-around;
+
+        > div {
+          margin-right: 0;
+          width: fit-content;
+
+          > a {
+            width: 40px;
+            height: 40px;
+
+            > svg {
+              width: 24px;
+              height: 24px;
+
+              > path {
+                transition-delay: 0.1s;
+                fill: #0f0f0f;
+              }
+            }
+
+            > div {
+              border-radius: 12px;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
 `;
 
 export const EmailStyle = styled.form`
-  width: 500px;
+  width: min(80%, 500px);
   font-size: 14px;
 
   /* Name & Email */
@@ -766,6 +967,20 @@ export const EncryptStyle = styled.section`
       line-height: 28px;
     }
   }
+
+  @media screen and (max-width: 1000px) {
+    padding-top: 50px;
+    box-sizing: border-box;
+
+    > div:nth-of-type(1) {
+      margin-bottom: 24px;
+    }
+
+    > form {
+      flex-direction: column;
+      margin-bottom: 24px;
+    }
+  }
 `;
 
 const encryptToDecrypt = keyframes`
@@ -810,9 +1025,11 @@ export const ButtonEncrypt = styled.div<{
   height: 36px;
   border-radius: 20px;
   margin-left: 24px;
-  background: linear-gradient(90deg,
-  hsla(329, 91%, 65%, 1) 0%,
-  hsla(350, 91%, 65%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(329, 91%, 65%, 1) 0%,
+    hsla(350, 91%, 65%, 1) 100%
+  );
 
   > svg {
     width: 20px;
@@ -830,11 +1047,13 @@ export const ButtonEncrypt = styled.div<{
     background-color: white;
 
     animation: ${(props) =>
-      props.$encrypt
-        ? encryptToDecrypt
-        : decryptToEncrypt} .5s ease-in-out forwards;;
+        props.$encrypt ? encryptToDecrypt : decryptToEncrypt}
+      0.5s ease-in-out forwards;
   }
-}
+
+  @media screen and (max-width: 1000px) {
+    margin-top: 24px;
+  }
 `;
 
 export const MessageResultStyle = styled.div`
@@ -880,5 +1099,9 @@ export const MessageResultStyle = styled.div`
     );
     opacity: 0.4;
     filter: blur(30px);
+  }
+
+  @media screen and (max-width: 1000px) {
+    height: 300px;
   }
 `;

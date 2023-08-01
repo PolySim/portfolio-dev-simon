@@ -1,11 +1,30 @@
 import { SkillStyle, SkillsStyle } from "@/styled";
 import skills from "./skills";
+import { useRef } from "react";
 
-export default function Skills(): JSX.Element {
+export default function Skills({
+  phoneMode,
+}: {
+  phoneMode: boolean;
+}): JSX.Element {
+  const containerRef = useRef<HTMLElement>(null);
+
+  const handleScroll = (element: HTMLElement | null, left: boolean) => {
+    if (element) {
+      left ? (element.scrollLeft = 400) : (element.scrollLeft = 0);
+    }
+  };
+
   return (
-    <SkillsStyle>
+    <SkillsStyle ref={containerRef}>
       <div>
-        <h3>Frontend</h3>
+        {phoneMode ? (
+          <h3 onClick={() => handleScroll(containerRef.current, true)}>
+            Scroll right to Backend and Tools
+          </h3>
+        ) : (
+          <h3>Frontend</h3>
+        )}
         <div>
           {skills.frontend.map((skill) => (
             <SkillStyle
@@ -22,7 +41,13 @@ export default function Skills(): JSX.Element {
         </div>
       </div>
       <div>
-        <h3>Backend and tools</h3>
+        {phoneMode ? (
+          <h3 onClick={() => handleScroll(containerRef.current, false)}>
+            Scroll left to Frontend
+          </h3>
+        ) : (
+          <h3>Backend and Tools</h3>
+        )}
         <div>
           {skills.backend.map((skill) => (
             <SkillStyle

@@ -21,10 +21,10 @@ const project: Projects = [
     imgPath: "/project/simon.png",
   },
   {
-    name: "Rechargle",
-    demoPath: "http://jbvcwno.cluster030.hosting.ovh.net/",
-    sourceCodePath: "https://github.com/PolySim/recharglee",
-    imgPath: "/project/rechargle.png",
+    name: "65 Pasion Montagne",
+    demoPath: "http://pfjwjxw.cluster030.hosting.ovh.net/",
+    sourceCodePath: "https://github.com/PolySim/65PassionMontagne",
+    imgPath: "/project/65PassionMontagne.png",
   },
 ];
 
